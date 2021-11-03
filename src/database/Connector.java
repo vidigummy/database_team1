@@ -10,20 +10,23 @@ import java.sql.ResultSet;
 public class Connector {
     Connection connection;
     public void connect(){
+        System.out.println("??");
         Connection conn = null;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String usr = "root";
-            String passwd = "fbehddls147!";
-            String url = "jdbc:mysql://101.101.219.145:3306/company";
+            String usr = "adm";
+            String passwd = "database";
+            String url = "jdbc:mysql://49.50.167.99:3306/company";
             conn = DriverManager.getConnection(url, usr, passwd);
             System.out.println("SQL 연결 성공");
         }catch(SQLException e){
             System.out.println("db 연결 실패");
+            System.out.println(e);
+            e.printStackTrace();
+            e.getErrorCode();
         }catch(ClassNotFoundException e){
             System.out.println("Class not found");
             System.out.print(e);
         }
     }
-    public void
 }
