@@ -15,7 +15,7 @@ public class Connector {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String usr = "root";
             String passwd = "fbehddls147!";
-            String url = "jdbc:mysql://101.101.219.145:3306/hw2";
+            String url = "jdbc:mysql://101.101.219.145:3306/company";
             conn = DriverManager.getConnection(url, usr, passwd);
             System.out.println("SQL 연결 성공");
         }catch(SQLException e){
@@ -25,4 +25,5 @@ public class Connector {
             System.out.print(e);
         }
     }
+    public void
 }
