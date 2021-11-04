@@ -60,7 +60,11 @@ public class Connector {
             while (rs.next()) {
                 HashMap<String, Object> row = new HashMap<String, Object>();
                 for (int i = 1; i <= column; i++) {
-                    row.put(md.getColumnName(i), rs.getObject(i));
+                    if(rs.getObject(i) == null){
+                        row.put(md.getColumnName(i)," - ");
+                    }else {
+                        row.put(md.getColumnName(i), rs.getObject(i).toString());
+                    }
                 }
                 list.add(row);
             }
