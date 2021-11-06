@@ -33,7 +33,7 @@ public class Sellect_filter{
                 result.add(row_one);
                 System.out.println(row_one);
             }
-        } else if (filter.equals("연봉")) {
+        } else if (filter.equals("월급")) {
             S_Select s_select = new S_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = s_select.Select_All();
@@ -52,6 +52,19 @@ public class Sellect_filter{
 //            kill_vidigummy = new Delete(result_list);
 //            boolean rs = kill_vidigummy.Delete_Employee();
 //            System.out.println(rs);
+
+//            vidigummy은 항공대로 이사갔다
+//            Update Employee test 코드
+//            Update_filter update_filter = new Update_filter("주소", "KAU, Goyang", result_list);
+//            Sellect_filter test_select = new Sellect_filter("","");
+
+//            vidigummy의 성별이 바뀌었다.(아니다)
+//            Update Employee test 코드
+//            Update_filter update_filter = new Update_filter("성별","F", result_list);
+
+//            vidigummy가 제 발로 나가게 하려면 월급으로 90원만 주면 된다.
+//            update Salary test 코드
+            Update_filter update_filter = new Update_filter("월급","90", result_list);
         }else if (filter.equals("생일")){
             B_Select b_select = new B_Select(Condition);
             ArrayList<HashMap<String,Object>> tmp = new ArrayList<HashMap<String,Object>>();
