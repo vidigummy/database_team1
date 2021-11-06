@@ -4,6 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Select {
-    Connector conn = new Connector();
+    Connector conn;
     ArrayList<HashMap<String,Object>> result;
 }

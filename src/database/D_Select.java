@@ -6,12 +6,12 @@ import java.util.HashMap;
 public class D_Select extends Select{
     String filter_condition;
     D_Select(String s){
-        result = null;
+        result = new ArrayList<HashMap<String,Object>>();
         filter_condition = s;
+        conn = new Connector();
     }
     public ArrayList<HashMap<String,Object>> Select_All(){
         conn.connect();
-        ArrayList<HashMap<String,Object>> result = new ArrayList<HashMap<String,Object>>();
         String query = "SELECT e.Name, e.Ssn, e.Address, e.Sex, e.Supervisor, e.Salary, d.Dname" +
                 " FROM DEPARTMENT AS d LEFT JOIN (SELECT concat(e.Fname,\" \", e.Minit,\" \" ,e.Lname) AS Name," +
                 " e.Ssn, e.Address, e.Sex,concat(s.Fname, \" \", s.Minit, \" \", s.Lname) AS Supervisor" +

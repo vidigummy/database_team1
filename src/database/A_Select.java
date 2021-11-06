@@ -7,7 +7,8 @@ public class A_Select extends Select{
     //1번에 대한 메써드
     //수정 필요함
     A_Select(){
-        result = null;
+        result = new ArrayList<HashMap<String,Object>>();
+        conn = new Connector();
     }
     public ArrayList<HashMap<String,Object>> Select_All(){
         conn.connect();
