@@ -33,13 +33,14 @@ public class Connector {
 
     public boolean modify(String sql){
         Statement statement = null;
-        boolean rs;
+        boolean rs = false;
 
         try{
             statement = this.connection.createStatement();
             rs = statement.execute(sql);
             return rs;
         }catch(SQLException e){
+            System.out.println(e);
             System.out.println(e.getStackTrace());
             return false;
         }

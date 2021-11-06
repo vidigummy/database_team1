@@ -35,16 +35,23 @@ public class Sellect_filter{
             }
         } else if (filter.equals("연봉")) {
             S_Select s_select = new S_Select(Condition);
-            ArrayList<HashMap<String,Object>> tmp = new ArrayList<HashMap<String,Object>>();
-            tmp = s_select.Select_All();
+            ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
+            result_list = s_select.Select_All();
             String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
             result.add(columns);
-            for (HashMap<String, Object> row : tmp){
+            for (HashMap<String, Object> row : result_list){
                 String row_one = row.get("Name")+" "+row.get("Ssn")+row.get("Bdate")+" "+row.get("Address")+" "
                         +row.get("Sex")+" "+row.get("Supervisor")+" "+row.get("Salary")+" "+row.get("Dname");
                 System.out.println(row_one);
 //                result.add(row_one);
             }
+            //vidigummy는 연봉이 쓸데없이 높다 Delete testCode(중간에 gui가 없어서...)
+//            Delete Employee test 코드(어디 Select에 갖다 붙여도 상관 없다)
+//            System.out.println("kill vidigummy!!!!");
+//            Delete kill_vidigummy = null;
+//            kill_vidigummy = new Delete(result_list);
+//            boolean rs = kill_vidigummy.Delete_Employee();
+//            System.out.println(rs);
         }else if (filter.equals("생일")){
             B_Select b_select = new B_Select(Condition);
             ArrayList<HashMap<String,Object>> tmp = new ArrayList<HashMap<String,Object>>();
@@ -52,7 +59,7 @@ public class Sellect_filter{
             String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
             result.add(columns);
             for (HashMap<String, Object> row : tmp){
-                String row_one = row.get("Name")+" "+row.get("Ssn")+row.get("Bdate")+ " "+row.get("Address")+" "
+                String row_one = row.get("Name")+" "+row.get("Ssn")+" "+row.get("Bdate")+ " "+row.get("Address")+" "
                         +row.get("Sex")+" "+row.get("Supervisor")+" "+row.get("Salary")+" "+row.get("Dname");
                 System.out.println(row_one);
 //                result.add(row_one);
