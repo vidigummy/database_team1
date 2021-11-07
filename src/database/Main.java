@@ -35,5 +35,8 @@ public class Main {
 //        del_list.add("15125021");
 //        del_list.add("17125021");
 //        E_Delete del_vidi = new E_Delete(del_list);
+        ArrayList test_Ssn = new ArrayList<String>();
+        test_Ssn.add("15125021");
+        Update_filter update_filter = new Update_filter("주소","California",test_Ssn);
     }
 }

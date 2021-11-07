@@ -4,16 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Delete {
+public class Delete_From_List {
     private ArrayList<HashMap<String,Object>> Employee_list;
     private boolean rs;
     Connector conn = null;
-    Delete(ArrayList<HashMap<String,Object>> input){
+    Delete_From_List(ArrayList<HashMap<String,Object>> input){
         Employee_list = input;
         rs = false;
         conn = new Connector();
-    }
-    public boolean Delete_Employee(){
+
         for(HashMap<String,Object> Employee : Employee_list){
             conn.connect();
             String Ssn = Employee.get("Ssn").toString();
@@ -28,6 +27,5 @@ public class Delete {
 
             conn.close();
         }
-        return rs;
     }
 }

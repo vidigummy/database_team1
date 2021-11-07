@@ -47,25 +47,12 @@ public class Sellect_filter{
                 result.add(return_row);
             }
             //vidigummy는 연봉이 쓸데없이 높다 Delete testCode(중간에 gui가 없어서...)
-//            Delete Employee test 코드(어디 Select에 갖다 붙여도 상관 없다)
+//            Delete_From_List Employee test 코드(어디 Select에 갖다 붙여도 상관 없다)
 //            System.out.println("kill vidigummy!!!!");
-//            Delete kill_vidigummy = null;
 //            kill_vidigummy = new Delete(result_list);
 //            boolean rs = kill_vidigummy.Delete_Employee();
 //            System.out.println(rs);
 
-//            vidigummy은 항공대로 이사갔다
-//            Update Employee test 코드
-//            Update_filter update_filter = new Update_filter("주소", "KAU, Goyang", result_list);
-//            Sellect_filter test_select = new Sellect_filter("","");
-
-//            vidigummy의 성별이 바뀌었다.(아니다)
-//            Update Employee test 코드
-//            Update_filter update_filter = new Update_filter("성별","F", result_list);
-
-//            vidigummy가 제 발로 나가게 하려면 월급으로 90원만 주면 된다.
-//            update Salary test 코드
-//            Update_filter update_filter = new Update_filter("월급","90", result_list);
         }else if (filter.equals("생일")){
             B_Select b_select = new B_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();

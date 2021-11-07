@@ -4,18 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Update_filter {
-    Update_filter(String what, String input, ArrayList<HashMap<String,Object>> input_to_Update){
+    Update_filter(String what, String input, ArrayList<String> input_to_Update){
         if(what.equals("주소")){
-            Ad_Update ad_update = new Ad_Update(input, input_to_Update);
-            ad_update.Update_Address();
+            Update_Ssn_ad update_ssn_ad = new Update_Ssn_ad(input_to_Update,input);
             System.out.println("주소 변경 완료");
         }else if(what.equals("성별")){
-            Se_Update se_update = new Se_Update(input, input_to_Update);
-            se_update.Update_Sex();
+            Update_Ssn_Se update_ssn_se = new Update_Ssn_Se(input_to_Update,input);
             System.out.println("성별 변경 완료");
         }else if(what.equals("월급")){
-            Sa_Update sa_update = new Sa_Update(input, input_to_Update);
-            sa_update.Update_Salary();
+            Update_Ssn_sa update_ssn_sa = new Update_Ssn_sa(input_to_Update, input);
             System.out.println("월급 변경 완료");
         }else{
             System.out.println("잘못된 조건 입력");
