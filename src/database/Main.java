@@ -21,7 +21,7 @@ public class Main {
 ////        연봉 SELECT
 //        Sellect_filter Salary = new Sellect_filter("월급",1000, test_select);
 //        부서
-        Sellect_filter Depart = new Sellect_filter("부서","Research", test_select);
+//        Sellect_filter Depart = new Sellect_filter("부서","Research", test_select);
 //        //생일
 //        Sellect_filter Birthday = new Sellect_filter("생일","07", test_select);
 //        //부하직원
@@ -40,8 +40,8 @@ public class Main {
 //        del_list.add("15125021");
 //        del_list.add("17125021");
 //        E_Delete del_vidi = new E_Delete(del_list);
-//        ArrayList test_Ssn = new ArrayList<String>();
-//        test_Ssn.add("15125021");
-//        Update_filter update_filter = new Update_filter("주소","California",test_Ssn);
+        ArrayList test_Ssn = new ArrayList<String>();
+        test_Ssn.add("15125021");
+        Update_filter update_filter = new Update_filter("월급","100000",test_Ssn);
     }
 }
