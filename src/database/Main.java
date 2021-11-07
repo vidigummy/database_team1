@@ -6,13 +6,13 @@ import java.util.HashMap;
 public class Main {
     public static void main(String args[]){
 //모든 EMPLOYEE의 정보를 가져오는 법
-        ArrayList<String> test_select = new ArrayList<String>();
-        test_select.add("Name");
-        test_select.add("Ssn");
-        test_select.add("Sex");
+//        ArrayList<String> test_select = new ArrayList<String>();
+//        test_select.add("Name");
+//        test_select.add("Ssn");
+//        test_select.add("Sex");
 //        Sellect_filter all = new Sellect_filter("","",test_select);
 //        // 성별 SELECT
-        Sellect_filter Sex = new Sellect_filter("성별","F", test_select);
+//        Sellect_filter Sex = new Sellect_filter("성별","F", test_select);
 ////        연봉 SELECT
 //        Sellect_filter Salary = new Sellect_filter("월급",90000, test_select);
 //        부서
@@ -30,7 +30,10 @@ public class Main {
 //        conn.connect();
 //        conn.modify("INSERT INTO `EMPLOYEE` (`Fname`, `Minit`, `Lname`, `Ssn`, `Bdate`, `Address`, `Sex`, `Salary`, `Super_ssn`, `Dno`) VALUES ('vidi', 'B', 'gummy', '', '1996-07-22', 'SEOUL', 'M', '30000.00', '666884444', '4')");
 //        conn.close();
-
-
+//        일은 안 하고 맨날 집에서 배 긁는 vidigummy의 흔적을 없애자.(testcode)
+//        ArrayList<String> del_list = new ArrayList<String>();
+//        del_list.add("15125021");
+//        del_list.add("17125021");
+//        E_Delete del_vidi = new E_Delete(del_list);
     }
 }

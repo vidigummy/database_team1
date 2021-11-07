@@ -14,8 +14,6 @@ public class Sellect_filter{
             D_Select test_d_select = new D_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = test_d_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -28,8 +26,6 @@ public class Sellect_filter{
             Se_Select test_se_select = new Se_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = test_se_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -42,8 +38,6 @@ public class Sellect_filter{
             S_Select s_select = new S_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = s_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -76,8 +70,6 @@ public class Sellect_filter{
             B_Select b_select = new B_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = b_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -90,8 +82,6 @@ public class Sellect_filter{
             Su_Select su_select = new Su_Select(Condition);
             ArrayList<HashMap<String,Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = su_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -104,8 +94,6 @@ public class Sellect_filter{
             A_Select a_select = new A_Select();
             ArrayList<HashMap<String, Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = a_select.Select_All();
-            String columns = "NAME&SSN&BDATE&ADDRESS&SEX&SALARY&SUPERVISOR&DEPARTMENT";
-            result.add(columns);
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
@@ -113,10 +101,6 @@ public class Sellect_filter{
                 }
                 System.out.println(return_row);
                 result.add(return_row);
-//                String row_one = row.get("Name")+" "+row.get("Ssn")+row.get("Bdate")+" "+row.get("Address")+" "
-//                        +row.get("Sex")+" "+row.get("Supervisor")+" "+row.get("Salary")+" "+row.get("Dname");
-//                System.out.println(row_one);
-//                result.add(row_one);
             }
             //여기서 gui 부르면 될 거 같은데 어떻게 부를지 모르겠네
         }
