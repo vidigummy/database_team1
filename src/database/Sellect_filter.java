@@ -7,6 +7,9 @@ import java.util.concurrent.locks.Condition;
 
 public class Sellect_filter{
     Sellect_filter(String filter, Object attribute, ArrayList<String> area){
+        if(area.contains("Department")){
+            area.set(area.indexOf("Department"),"Dname");
+        }
         String Condition = attribute.toString();
         String range = filter.toString();
         ArrayList<String> result = new ArrayList<String>();
@@ -81,9 +84,11 @@ public class Sellect_filter{
             A_Select a_select = new A_Select();
             ArrayList<HashMap<String, Object>> result_list = new ArrayList<HashMap<String,Object>>();
             result_list = a_select.Select_All();
+
             for(HashMap<String,Object> row : result_list){
                 String return_row = "";
                 for (String selected : area){
+                    System.out.print(selected+" ");
                     return_row = return_row+row.get(selected).toString()+"&";
                 }
                 System.out.println(return_row);

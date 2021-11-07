@@ -13,15 +13,15 @@ public class A_Select extends Select{
     public ArrayList<HashMap<String,Object>> Select_All(){
         conn.connect();
         ArrayList<HashMap<String,Object>> result = new ArrayList<HashMap<String,Object>>();
-        String query = "SELECT e.Name, e.Ssn, e.Bdate, e.Address, e.Sex, e.Supervisor, e.Salary, d.Dname" +
+        String query = "SELECT e.Name, e.Ssn, e.Bdate, e.Address, e.Sex, e.Supervisor, e.Salary, d.Dname AS Department" +
                 " FROM DEPARTMENT AS d LEFT JOIN (SELECT concat(e.Fname,\" \", e.Minit,\" \" ,e.Lname) AS Name," +
                 " e.Ssn, e.Bdate, e.Address, e.Sex,concat(s.Fname, \" \", s.Minit, \" \", s.Lname) AS Supervisor" +
                 ", e.Salary, e.Dno FROM EMPLOYEE AS e LEFT OUTER JOIN EMPLOYEE AS s ON e.Super_ssn = s.Ssn) AS e ON e.Dno = d.Dnumber";
 //        String query = "SELECT * FROM EMPLOYEE";
+//        System.out.println(query);
         try {
             result = conn.search(query);
             conn.close();
-            System.out.println(result.size());
             return result;
         }catch (Exception e){
             conn.close();

@@ -6,11 +6,16 @@ import java.util.HashMap;
 public class Main {
     public static void main(String args[]){
 //모든 EMPLOYEE의 정보를 가져오는 법
-//        ArrayList<String> test_select = new ArrayList<String>();
-//        test_select.add("Name");
-//        test_select.add("Ssn");
-//        test_select.add("Sex");
-//        Sellect_filter all = new Sellect_filter("","",test_select);
+        ArrayList<String> test_select = new ArrayList<String>();
+        test_select.add("Name");
+        test_select.add("Ssn");
+        test_select.add("Bdate");
+        test_select.add("Address");
+        test_select.add("Sex");
+        test_select.add("Supervisor");
+        test_select.add("Salary");
+        test_select.add("Department");
+        Sellect_filter all = new Sellect_filter("","",test_select);
 //        // 성별 SELECT
 //        Sellect_filter Sex = new Sellect_filter("성별","F", test_select);
 ////        연봉 SELECT
