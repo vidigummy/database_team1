@@ -20,6 +20,7 @@ public class Sellect_filter{
                 String row_one = row.get("Name")+" "+row.get("Ssn")+row.get("Bdate")+" "+row.get("Address")+" "
                         +row.get("Sex")+" "+row.get("Supervisor")+" "+row.get("Salary")+" "+row.get("Dname");
                 result.add(row_one);
+                System.out.println(row_one);
             }
         }else if(filter.equals("성별")){
             Se_Select test_se_select = new Se_Select(Condition);
@@ -64,7 +65,7 @@ public class Sellect_filter{
 
 //            vidigummy가 제 발로 나가게 하려면 월급으로 90원만 주면 된다.
 //            update Salary test 코드
-            Update_filter update_filter = new Update_filter("월급","90", result_list);
+//            Update_filter update_filter = new Update_filter("월급","90", result_list);
         }else if (filter.equals("생일")){
             B_Select b_select = new B_Select(Condition);
             ArrayList<HashMap<String,Object>> tmp = new ArrayList<HashMap<String,Object>>();
