@@ -1,27 +1,127 @@
 package database;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Main {
+
+    private static boolean SalaryValdate(String Salary){
+        Float a = Float.parseFloat(Salary);
+        if(a.toString().length() > 10) return false;
+        return true;
+    }
+
+    private static boolean BdateValidateion(String Bdate){
+        String[] arr = Bdate.split("-");
+        if(arr.length != 3) return false;
+        for(String row : arr){
+            for(int i = 0; i < row.length(); i++){
+                char tmp = row.charAt(i);
+                if(!Character.isDigit(tmp)) return false;
+            }
+        }
+        return true;
+    }
+    private static boolean InsertValidation(String Fname, String Minit, String Lname, String Ssn, String Bdate, String Adress, String Sex, String Salary, String Super_Ssn, String Department){
+        if(Fname.length()==0 || Fname.length() > 15){
+            System.out.println("invalide fname");
+            return false;
+        }
+        if(Minit.length()==0 || Minit.length() > 1){
+            System.out.println("invalide mname");
+            return false;
+        }
+        if(Lname.length() ==0 || Lname.length() >15){
+            System.out.println("invalide lname");
+            return false;
+        }
+        if(Ssn.length() == 0 || Ssn.length() > 9){
+            System.out.println("invalide Ssn");
+            return false;
+        }
+        else{
+            //중복 Ssn은 안된다.
+            Connector conn = new Connector();
+            conn.connect();
+            ArrayList<HashMap<String, Object>> rs = new ArrayList<HashMap<String, Object>>();
+            rs = conn.search("SELECT COUNT(*) FROM EMPLOYEE WHERE Ssn LIKE '"+Ssn+"'");
+            conn.close();
+            for(HashMap<String, Object> row : rs){
+                if(row.get("COUNT(*)").toString().equals("1")){
+                    System.out.println("Duplication Ssn");
+                    return false;
+                }
+            }
+        }
+        //Bdate Validateion
+        if(!BdateValidateion(Bdate)) {
+            System.out.println("invalid Bdate");
+            return false;
+        }
+        if(Adress.length()==0 || Adress.length()>30){
+            System.out.println("invalide Adress");
+            return false;
+        }
+        if(!Sex.equals("M") && !Sex.equals("F")){
+            System.out.println("invalide SEX");
+            return false;
+        }
+        if(Salary.length() <= 0 || SalaryValdate(Salary) == false){
+            System.out.println("invalide Salary");
+            return false;
+        }
+
+        //superSns
+        if(Super_Ssn.length()>9) return false;
+        else if(Super_Ssn.length()!=0){
+            Connector conn = new Connector();
+            conn.connect();
+            ArrayList<HashMap<String, Object>> rs = new ArrayList<HashMap<String, Object>>();
+            rs = conn.search("SELECT COUNT(*) FROM EMPLOYEE WHERE Ssn LIKE '"+Super_Ssn+"'");
+            conn.close();
+            for(HashMap<String, Object> row : rs){
+                if(row.get("COUNT(*)").toString().equals("0")){
+                    System.out.println("No Ssn");
+                    return false;
+                }
+            }
+        }
+
+        Connector conn = new Connector();
+        conn.connect();
+        ArrayList<HashMap<String, Object>> rs = new ArrayList<HashMap<String, Object>>();
+        rs = conn.search("SELECT COUNT(*) FROM DEPARTMENT WHERE Dnumber = "+Department);
+        conn.close();
+        for(HashMap<String, Object> row : rs){
+            if(row.get("COUNT(*)").toString().equals("0")){
+                System.out.println("No Department");
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String args[]){
 //모든 EMPLOYEE의 정보를 가져오는 법
-        ArrayList<String> test_select = new ArrayList<String>();
-        test_select.add("Name");
-        test_select.add("Ssn");
-        test_select.add("Bdate");
-        test_select.add("Address");
-        test_select.add("Sex");
-        test_select.add("Supervisor");
-        test_select.add("Salary");
-        test_select.add("Department");
+//        ArrayList<String> test_select = new ArrayList<String>();
+//        test_select.add("Name");
+//        test_select.add("Ssn");
+//        test_select.add("Bdate");
+//        test_select.add("Address");
+//        test_select.add("Sex");
+//        test_select.add("Supervisor");
+//        test_select.add("Salary");
+//        test_select.add("Department");
 //        Sellect_filter all = new Sellect_filter("","",test_select);
 //        // 성별 SELECT
 //        Sellect_filter Sex = new Sellect_filter("성별","F", test_select);
 ////        연봉 SELECT
 //        Sellect_filter Salary = new Sellect_filter("월급",1000, test_select);
 //        부서
-//        Sellect_filter Depart = new Sellect_filter("부서","Research", test_select);
+//        Sellect_filter Depart = new Sellect_filter("부서","Researc0h", test_select);
 //        //생일
 //        Sellect_filter Birthday = new Sellect_filter("생일","07", test_select);
 //        //부하직원
@@ -40,8 +140,14 @@ public class Main {
 //        del_list.add("15125021");
 //        del_list.add("17125021");
 //        E_Delete del_vidi = new E_Delete(del_list);
-        ArrayList test_Ssn = new ArrayList<String>();
-        test_Ssn.add("15125021");
-        Update_filter update_filter = new Update_filter("월급","100000",test_Ssn);
+//        ArrayList test_Ssn = new ArrayList<String>();
+//        test_Ssn.add("15125021");
+//        Update_filter update_filter = new Update_filter("월급","100000",test_Ssn);
+        if(InsertValidation("vidi", "B", "gummy", "1234", "1996-07-21", "SEOUL", "F", "30000.00", "1234555", "1")){
+            System.out.println("true");
+        }
+        else{
+            System.out.println("false");
+        }
     }
 }
